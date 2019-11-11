@@ -1,0 +1,7 @@
+zap:
+  context: security/zap # defines the check status name
+  debug: false # log zap webhook event requests on debug level
+  port: 4040
+
+  urls:
+    scotty: http://localhost:3010
