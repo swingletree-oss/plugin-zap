@@ -4,4 +4,4 @@ zap:
   port: 4040
 
   urls:
-    scotty: http://localhost:3010
+    scotty: # scotty base url
