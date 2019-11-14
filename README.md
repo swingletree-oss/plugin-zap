@@ -12,14 +12,21 @@ Processed data is persisted to ElasticSearch (if enabled) and can be processed t
 
 ## Sending a scan report to Swingletree
 
-A Swingletree webhook is published when the Zap Plugin is enabled.
-It accepts a OWASP Zap scan report in JSON format as a payload and needs some additional query parameters to link the report to a GitHub repository:
+A Gate webhook is published when the Zap Plugin is enabled.
+It accepts a OWASP Zao scan report in JSON format as a payload and needs some additional query parameters to link the report to a GitHub repository:
+
+```yaml
+gate:
+  plugins:
+    - id: zap
+      base: # enter base url of plugin-zap instance
+```
+
+Gate publishes an endpoint which is connected to the plugin. You will need to attach information about the target repository using the provided methods of Gate (for example HTTP Headers or query parameters):
 
 ```
 POST /report/zap?org=[GitHub Organization]&repo=[Repository name]&sha=[Commit SHA]&branch=[branch]
 ```
-
-It is recommended to protect your Gate API endpoint. If you enabled Gate API authentication you will need to provide the authentication credentials via Basic Authentication.
 
 Swingletree will process the report and send a Check Run Status with the context `security/zap` to the given GitHub coordinates.
 
