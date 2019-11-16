@@ -14,7 +14,7 @@ export class ConfigurationService {
       .env({
         lowerCase: true,
         separator: "_",
-        match: /((TWISTLOCK|LOG)_.*)$/i
+        match: /((ZAP|LOG)_.*)$/i
       })
       .file({
         file: file,
