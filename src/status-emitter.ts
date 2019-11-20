@@ -41,7 +41,7 @@ class ZapStatusEmitter {
     return annotations;
   }
 
-  public async sendReport(event: ZapReportData) {
+  public async sendReport(event: ZapReportData, uid: string) {
     const annotations = this.getAnnotations(event.report);
 
     const templateData: Zap.ReportTemplate = {
@@ -51,6 +51,7 @@ class ZapStatusEmitter {
     const notificationData: Harness.AnalysisReport = {
       sender: this.context,
       source: event.source,
+      uuid: uid,
       checkStatus: annotations.length == 0 ? Harness.Conclusion.PASSED : Harness.Conclusion.BLOCKED,
       title: `${annotations.length} issues found`,
       metadata: {

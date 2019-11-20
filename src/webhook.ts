@@ -67,7 +67,7 @@ class ZapWebhook {
     if (this.isWebhookEventRelevant(reportData)) {
       const reportReceivedEvent = new ZapReportData(reportData, source);
 
-      this.emitter.sendReport(reportReceivedEvent);
+      this.emitter.sendReport(reportReceivedEvent, message.meta.buildUuid);
     } else {
       log.debug("zap webhook data did not contain a report. This event will be ignored.");
       res.status(400).send({
