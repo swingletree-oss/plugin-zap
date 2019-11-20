@@ -4,4 +4,4 @@ zap:
   port: 4040
 
   urls:
-    scotty: # scotty base url
+    scotty: http://scotty:3000 # scotty base url
