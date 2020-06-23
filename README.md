@@ -13,7 +13,7 @@ Processed data is persisted to ElasticSearch (if enabled) and can be processed t
 ## Sending a scan report to Swingletree
 
 A Gate webhook is published when the Zap Plugin is enabled.
-It accepts a OWASP Zap scan report in JSON format as a payload and needs some additional query parameters to link the report to a GitHub pull request:
+It accepts an OWASP Zap scan report in JSON format as a payload and needs some additional query parameters to link the report to a GitHub pull request:
 
 ```yaml
 gate:
